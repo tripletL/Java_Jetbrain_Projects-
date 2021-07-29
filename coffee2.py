@@ -16,53 +16,54 @@ def buy(choose):
     global water, milk, beans, cup, money
 
     if choose == 1:
-        waterafter = water - 250
-        beansafter = beans - 16
-        moneyafter = money -4
-        cupafter = cup-1
+        water = water - 250
+        beans = beans - 16
+        money = money +4
+        cup = cup-1
     elif choose == 2:
-        waterafter = water -350
-        milkafter = milk - 75
-        beansafter = beans -20
-        moneyafter = money -7
-        cupafter = cup-1
+        water = water -350
+        milk = milk - 75
+        beans = beans -20
+        money = money +7
+        cup = cup-1
     elif choose == 3:
-        waterafter = water - 200
-        milkafter = milk -100
-        beansafter = beans - 12
-        moneyafter = money - 6
-        cupafter = cup-1
+        water = water - 200
+        milk = milk -100
+        beans = beans - 12
+        money = money + 6
+        cup = cup-1
 
 def fill(newwater,newmilk,newbeans,newcups):
     global water, milk, beans, cup, money
-    milkafter = milk + newmilk
-    waterafter = water + newwater
-    beansafter = beans + newbeans
-    cupsafter = cup + newcups
+    milk = milk + newmilk
+    water = water + newwater
+    beans = beans + newbeans
+    cup = cup + newcups
 
-def take(moneytake):
+def mon(action):
     global water, milk, beans, cup, money
+    a = str(money)
+    print("I gave you $" + a)
+    money -=550
 
-    moneytake = money
-    money == 0
 
 action=input("Write action (buy, fill, take):")
 if action == "buy":
-    choose = input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:") 
+    choose = int(input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino:")) 
     buy(choose)
 elif action == "fill":
-    newwater = input("Write how many ml of water you want to add:")
+    newwater = int(input("Write how many ml of water you want to add:"))
 
-    newmilk = input("Write how many ml of milk you want to add:")
+    newmilk = int(input("Write how many ml of milk you want to add:"))
 
-    newbeans = input("Write how many grams of coffee beans you want to add:")
+    newbeans = int(input("Write how many grams of coffee beans you want to add:"))
 
-    newcups = input("Write how many disposable coffee cups you want to add:")
+    newcups = int(input("Write how many disposable coffee cups you want to add:"))
 
     fill(newwater,newmilk,newbeans,newcups)
 elif action == "take":
-    moneytake = int(input("I gave you $"))
-    take(moneytake)
+    mon(action)
+
 print()
 print(f'''The coffee machine has:
 {water} of water
